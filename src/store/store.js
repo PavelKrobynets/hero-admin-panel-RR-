@@ -1,8 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import reducer from "../reducers/reducers";
+import { configureStore } from '@reduxjs/toolkit';
+import heroSlice from '../reducers/heroSlice';
 
 export const store = configureStore({
-  reducer
+	reducer: {
+		hero: heroSlice
+	},
 });
 
-export const RootState = store.getState;
+const RootState = store.getState
