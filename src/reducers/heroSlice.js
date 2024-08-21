@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
   heroes: [],
   heroesLoadingStatus: "idle",
@@ -23,7 +22,16 @@ const heroSlice = createSlice({
     heroDeleted(state, action) {
       return {
         ...state,
-        heroes: state.heroes.filter(hero => hero.id !== action.payload),
+        heroes: state.heroes.filter((hero) => hero.id !== action.payload),
+      };
+    },
+    filterFetch(state, action) {
+      state.filters = [...action.payload];
+    },
+    filteredHeroes(state, action) {
+      return {
+        ...state,
+        heroes: state.heroes.filter((hero) => hero.element === action.payload),
       };
     },
   },
@@ -34,5 +42,7 @@ export const {
   heroesUpdated,
   heroesUpdatingError,
   heroDeleted,
+  filterFetch,
+  filteredHeroes,
 } = heroSlice.actions;
 export default heroSlice.reducer; // export the reducer

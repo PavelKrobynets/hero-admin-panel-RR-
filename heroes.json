@@ -1,17 +1,50 @@
 {
   "heroes": [
     {
-      "name": "Paul",
-      "description": "aaa",
+      "name": "flint",
+      "description": "fireball",
       "element": "fire",
-      "id": "6a0f53e7-eb4e-436d-9a2b-21fbdbce248f"
+      "id": "d569acd1-5bb1-47cd-a309-1b202a9527df"
+    },
+    {
+      "name": "captain stacy",
+      "description": "asdasdasd",
+      "element": "water",
+      "id": "666bf02d-9546-4054-80ca-825f263df300"
+    },
+    {
+      "name": "Ang",
+      "description": "avatar",
+      "element": "wind",
+      "id": "073c6c27-c3a5-4f74-ad81-e6a89e567d3a"
+    },
+    {
+      "name": "Aquamen",
+      "description": "fish king",
+      "element": "water",
+      "id": "f86c27b9-da84-409b-ae9f-a067165d26a1"
     }
   ],
   "filters": [
-    "all",
-    "fire",
-    "water",
-    "wind",
-    "earth"
+    {
+      "name": "all",
+      "styles": "outline-dark"
+    },
+    {
+      "name": "fire",
+      "styles": "danger"
+    },
+    {
+      "name": "water",
+      "styles": "primary"
+    },
+    {
+      "name": "wind",
+      "styles": "success"
+    },
+    {
+      "name": "earth",
+      "styles": "secondary"
+    }
   ]
 }

@@ -40,6 +40,7 @@ const HeroesList = () => {
         console.log(error);
         dispatch(heroesUpdatingError());
       });
+			// eslint-disable-next-line
   }, [request]);
 
   if (heroesLoadingStatus === "loading") {
@@ -52,7 +53,6 @@ const HeroesList = () => {
     if (!arr || arr.length === 0) {
       return <h5 className="text-center mt-5">Героев пока нет</h5>;
     }
-    console.log(arr);
     return arr.map(({ id, ...props }) => {
       return (
         <HeroesListItem deleteHero={() => deleteHero(id)} key={id} {...props} />

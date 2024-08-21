@@ -9,6 +9,7 @@
 // данных из фильтров
 import { useForm } from "react-hook-form";
 import { useHttp } from "../../hooks/http.hook";
+import useElements from "../../hooks/useElements";
 import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import {
@@ -22,17 +23,18 @@ export default function HeroesAddForm() {
   const dispatch = useDispatch();
   const { request } = useHttp();
   const { register, handleSubmit } = useForm();
+  const elements = useElements();
+
 
   const onSubmit = (data) => {
-		heroesUpdating();
-		data.id = v4();
-		console.log(data);
+    heroesUpdating();
+    data.id = v4();
     request("http://localhost:3001/heroes", "POST", JSON.stringify(data))
       .then((data) => dispatch(heroesUpdated([data])))
       .catch((error) => {
-				console.log(error)
-				dispatch(heroesUpdatingError())
-			});
+        console.log(error);
+        dispatch(heroesUpdatingError());
+      });
   };
 
   return (
@@ -68,11 +70,13 @@ export default function HeroesAddForm() {
           Выбрать элемент героя
         </label>
         <select className="form-select" {...register("element")}>
-          <option>Я владею элементом...</option>
-          <option value="fire">Огонь</option>
-          <option value="water">Вода</option>
-          <option value="wind">Ветер</option>
-          <option value="earth">Земля</option>
+          {elements.map((element) => {
+            return (
+              <option key={element.name} value={element.name}>
+                {element.name}
+              </option>
+            );
+          })}
         </select>
         <input
           type="submit"
