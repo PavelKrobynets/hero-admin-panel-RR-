@@ -16,12 +16,12 @@
       "name": "Miyagi",
       "description": "fireman",
       "element": "fire",
-      "id": "1acea811-a578-436d-ac44-e3d16dd92fe1"
+      "id": "8ee85543-7999-49fe-9c49-9ea49884a469"
     }
   ],
   "filters": [
     {
-      "name": "all",
+      "name": "powerless",
       "styles": "outline-dark"
     },
     {

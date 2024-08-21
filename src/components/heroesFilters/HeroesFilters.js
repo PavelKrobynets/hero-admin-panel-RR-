@@ -7,7 +7,7 @@
 import useElements from "../../hooks/useElements";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { heroesUpdated } from "../../reducers/heroSlice";
+import { heroesFiltered } from "../../reducers/heroSlice";
 import { useHttp } from "../../hooks/http.hook";
 
 const HeroesFilters = () => {
@@ -20,10 +20,10 @@ const HeroesFilters = () => {
     setSelectedElement(element);
     request("http://localhost:3001/heroes").then((data) => {
       const filteredHeroesData =
-        element === "all"
+        element === "powerless"
           ? data
           : data.filter((hero) => hero.element === element);
-      dispatch(heroesUpdated(filteredHeroesData));
+      dispatch(heroesFiltered(filteredHeroesData));
     });
   };
   return (
