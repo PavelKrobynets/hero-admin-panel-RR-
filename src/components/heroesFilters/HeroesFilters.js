@@ -7,23 +7,24 @@
 import useElements from "../../hooks/useElements";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filteredHeroes, heroesUpdated } from "../../reducers/heroSlice";
+import { heroesUpdated } from "../../reducers/heroSlice";
 import { useHttp } from "../../hooks/http.hook";
 
 const HeroesFilters = () => {
   const dispatch = useDispatch();
   const elements = useElements();
   const { request } = useHttp();
-	const [selectedElement, setSelectedElement] = useState(null);
+  const [selectedElement, setSelectedElement] = useState(null);
 
   const onSubmit = (element) => {
-		setSelectedElement(element)
-    request("http://localhost:3001/heroes")
-		.then((data) => {
-			const filteredHeroesData = element === "all" ? data : data.filter((hero) => hero.element === element)
-			dispatch(filteredHeroes(filteredHeroesData));
-			dispatch(heroesUpdated(filteredHeroesData));
-		}) 
+    setSelectedElement(element);
+    request("http://localhost:3001/heroes").then((data) => {
+      const filteredHeroesData =
+        element === "all"
+          ? data
+          : data.filter((hero) => hero.element === element);
+      dispatch(heroesUpdated(filteredHeroesData));
+    });
   };
   return (
     <div className="card shadow-lg mt-4">
@@ -33,7 +34,9 @@ const HeroesFilters = () => {
           {elements.map((element) => (
             <button
               key={element.name}
-              className={`btn btn-${element.styles} ${element.name === selectedElement ? 'active' : ''}`}
+              className={`btn btn-${element.styles} ${
+                element.name === selectedElement ? "active" : ""
+              }`}
               onClick={() => onSubmit(element.name)}
             >
               {element.name}

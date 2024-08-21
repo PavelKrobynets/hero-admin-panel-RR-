@@ -6,5 +6,3 @@ export const store = configureStore({
 		hero: heroSlice
 	},
 });
-
-const RootState = store.getState

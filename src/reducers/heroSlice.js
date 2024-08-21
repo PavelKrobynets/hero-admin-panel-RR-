@@ -13,7 +13,7 @@ const heroSlice = createSlice({
       state.heroesLoadingStatus = "loading";
     },
     heroesUpdated(state, action) {
-      state.heroes = [...state.heroes, ...action.payload];
+      state.heroes = [...action.payload];
       state.heroesLoadingStatus = "idle";
     },
     heroesUpdatingError(state) {
@@ -24,10 +24,7 @@ const heroSlice = createSlice({
     },
     filterFetch(state, action) {
       state.filters = [...action.payload];
-    },
-    filteredHeroes(state, action) {
-        state.heroes = state.heroes.filter((hero) => hero.element === action.payload)
-    },
+    }
   },
 });
 
@@ -36,7 +33,6 @@ export const {
   heroesUpdated,
   heroesUpdatingError,
   heroDeleted,
-  filterFetch,
-  filteredHeroes,
+  filterFetch
 } = heroSlice.actions;
 export default heroSlice.reducer; // export the reducer
