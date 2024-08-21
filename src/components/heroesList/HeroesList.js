@@ -7,7 +7,7 @@ import {
   heroesUpdating,
   heroesUpdated,
   heroesUpdatingError,
-	heroDeleted
+  heroDeleted,
 } from "../../reducers/heroSlice";
 
 // Задача для этого компонента:
@@ -32,16 +32,19 @@ const HeroesList = () => {
     // eslint-disable-next-line
   }, []);
 
-  const deleteHero = useCallback((id) => {
-    request(`http://localhost:3001/heroes/${id}`, "DELETE")
-		.then(data => console.log(data, "DELETED"))
-      .then(dispatch(heroDeleted(id)))
-      .catch((error) => {
-        console.log(error);
-        dispatch(heroesUpdatingError());
-      });
-			// eslint-disable-next-line
-  }, [request]);
+  const deleteHero = useCallback(
+    (id) => {
+      request(`http://localhost:3001/heroes/${id}`, "DELETE")
+        .then((data) => console.log(data, "DELETED"))
+        .then(dispatch(heroDeleted(id)))
+        .catch((error) => {
+          console.log(error);
+          dispatch(heroesUpdatingError());
+        });
+      // eslint-disable-next-line
+    },
+    [request]
+  );
 
   if (heroesLoadingStatus === "loading") {
     return <Spinner />;
@@ -59,7 +62,7 @@ const HeroesList = () => {
       );
     });
   };
-
+	
   const elements = renderHeroesList(heroes);
   return <ul>{elements}</ul>;
 };

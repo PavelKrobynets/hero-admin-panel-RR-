@@ -1,18 +1,6 @@
 {
   "heroes": [
     {
-      "name": "flint",
-      "description": "fireball",
-      "element": "fire",
-      "id": "d569acd1-5bb1-47cd-a309-1b202a9527df"
-    },
-    {
-      "name": "captain stacy",
-      "description": "asdasdasd",
-      "element": "water",
-      "id": "666bf02d-9546-4054-80ca-825f263df300"
-    },
-    {
       "name": "Ang",
       "description": "avatar",
       "element": "wind",
@@ -23,6 +11,12 @@
       "description": "fish king",
       "element": "water",
       "id": "f86c27b9-da84-409b-ae9f-a067165d26a1"
+    },
+    {
+      "name": "Miyagi",
+      "description": "fireman",
+      "element": "fire",
+      "id": "1acea811-a578-436d-ac44-e3d16dd92fe1"
     }
   ],
   "filters": [

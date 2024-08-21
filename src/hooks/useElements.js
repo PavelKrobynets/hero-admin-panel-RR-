@@ -9,13 +9,11 @@ const useElements = () => {
   const { request } = useHttp();
   const elements = useSelector((state) => state.hero.filters);
 
-	
-
   useEffect(() => {
     request("http://localhost:3001/filters")
-      .then(data => dispatch(filterFetch(data)))
+      .then((data) => dispatch(filterFetch(data)))
       .catch((error) => console.error(error));
-			 // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return elements;

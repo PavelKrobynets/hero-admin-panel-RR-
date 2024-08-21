@@ -20,19 +20,13 @@ const heroSlice = createSlice({
       state.heroesLoadingStatus = "error";
     },
     heroDeleted(state, action) {
-      return {
-        ...state,
-        heroes: state.heroes.filter((hero) => hero.id !== action.payload),
-      };
+        state.heroes = state.heroes.filter((hero) => hero.id !== action.payload)
     },
     filterFetch(state, action) {
       state.filters = [...action.payload];
     },
     filteredHeroes(state, action) {
-      return {
-        ...state,
-        heroes: state.heroes.filter((hero) => hero.element === action.payload),
-      };
+        state.heroes = state.heroes.filter((hero) => hero.element === action.payload)
     },
   },
 });

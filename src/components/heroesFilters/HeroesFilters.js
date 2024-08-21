@@ -12,7 +12,7 @@ import { useHttp } from "../../hooks/http.hook";
 
 const HeroesFilters = () => {
   const dispatch = useDispatch();
-  const elements = useElements((state) => state.hero.filters);
+  const elements = useElements();
   const { request } = useHttp();
 	const [selectedElement, setSelectedElement] = useState(null);
 
