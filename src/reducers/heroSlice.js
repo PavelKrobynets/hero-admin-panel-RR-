@@ -28,19 +28,7 @@ const heroSlice = createSlice({
   },
 });
 
-const filterInitialState = {
-  filters: [],
-};
 
-const filterSlice = createSlice({
-  name: "filters",
-  initialState: filterInitialState,
-  reducers: {
-    filterFetch(state, action) {
-      state.filters = action.payload;
-    },
-  },
-});
 
 export const {
   heroesUpdating,
@@ -49,7 +37,5 @@ export const {
   heroDeleted,
   heroesFiltered,
 } = heroSlice.actions;
-export const { filterFetch } = filterSlice.actions;
 
 export const heroReducer = heroSlice.reducer;
-export const filterReducer = filterSlice.reducer;

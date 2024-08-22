@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { heroReducer, filterReducer } from "../reducers/heroSlice";
+import { heroReducer} from "../reducers/heroSlice";
+import { filterReducer } from "../reducers/filterSlice";
 
 export const store = configureStore({
   reducer: {

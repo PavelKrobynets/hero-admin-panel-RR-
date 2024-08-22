@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "./http.hook";
-import { filterFetch } from "../reducers/heroSlice";
+import { filterFetch } from "../reducers/filterSlice";
 
 const useElements = () => {
   const dispatch = useDispatch();
