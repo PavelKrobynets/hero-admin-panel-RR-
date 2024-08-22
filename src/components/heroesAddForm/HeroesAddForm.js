@@ -25,9 +25,8 @@ export default function HeroesAddForm() {
   const { register, handleSubmit } = useForm();
   const elements = useElements();
 
-
   const onSubmit = (data) => {
-    heroesUpdating();
+    dispatch(heroesUpdating());
     data.id = v4();
     request("http://localhost:3001/heroes", "POST", JSON.stringify(data))
       .then((data) => dispatch(heroesUpdated([data])))
@@ -70,7 +69,7 @@ export default function HeroesAddForm() {
           Выбрать элемент героя
         </label>
         <select className="form-select" {...register("element")}>
-          {elements.map((element) => {
+          {elements?.map((element) => {
             return (
               <option key={element.name} value={element.name}>
                 {element.name}

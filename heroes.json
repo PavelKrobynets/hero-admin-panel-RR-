@@ -17,6 +17,12 @@
       "description": "fireman",
       "element": "fire",
       "id": "8ee85543-7999-49fe-9c49-9ea49884a469"
+    },
+    {
+      "name": "flint",
+      "description": "rock throwing",
+      "element": "earth",
+      "id": "c2b82cc0-389c-40ee-95c4-e52b0e229785"
     }
   ],
   "filters": [

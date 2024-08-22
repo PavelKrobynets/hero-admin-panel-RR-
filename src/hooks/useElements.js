@@ -7,7 +7,7 @@ import { filterFetch } from "../reducers/heroSlice";
 const useElements = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
-  const elements = useSelector((state) => state.hero.filters);
+  const elements = useSelector((state) => state.filter.filters);
 
   useEffect(() => {
     request("http://localhost:3001/filters")

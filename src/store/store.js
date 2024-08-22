@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import heroSlice from '../reducers/heroSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { heroReducer, filterReducer } from "../reducers/heroSlice";
 
 export const store = configureStore({
-	reducer: {
-		hero: heroSlice
-	},
+  reducer: {
+    hero: heroReducer,
+    filter: filterReducer,
+  },
 });

@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
+
+const heroInitialState = {
   heroes: [],
   heroesLoadingStatus: "idle",
-  filters: [],
 };
 
 const heroSlice = createSlice({
   name: "heroes",
-  initialState,
+  initialState: heroInitialState,
   reducers: {
     heroesUpdating(state) {
       state.heroesLoadingStatus = "loading";
@@ -22,11 +22,22 @@ const heroSlice = createSlice({
     heroDeleted(state, action) {
       state.heroes = state.heroes.filter((hero) => hero.id !== action.payload);
     },
-    filterFetch(state, action) {
-      state.filters = action.payload;
-    },
     heroesFiltered(state, action) {
       state.heroes = action.payload;
+    },
+  },
+});
+
+const filterInitialState = {
+  filters: [],
+};
+
+const filterSlice = createSlice({
+  name: "filters",
+  initialState: filterInitialState,
+  reducers: {
+    filterFetch(state, action) {
+      state.filters = action.payload;
     },
   },
 });
@@ -34,9 +45,11 @@ const heroSlice = createSlice({
 export const {
   heroesUpdating,
   heroesUpdated,
-	heroesFiltered,
   heroesUpdatingError,
   heroDeleted,
-  filterFetch,
+  heroesFiltered,
 } = heroSlice.actions;
-export default heroSlice.reducer; // export the reducer
+export const { filterFetch } = filterSlice.actions;
+
+export const heroReducer = heroSlice.reducer;
+export const filterReducer = filterSlice.reducer;
