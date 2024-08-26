@@ -1,9 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useHttp } from "../hooks/http.hook"
 
 const heroInitialState = {
   heroes: [],
   heroesLoadingStatus: "idle",
 };
+
+const fetchHeroes = createAsyncThunk(
+	"heroes/fetchHeroes",
+	
+)
 
 const heroSlice = createSlice({
   name: "heroes",
