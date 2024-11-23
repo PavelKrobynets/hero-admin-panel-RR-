@@ -7,9 +7,9 @@ import {
   heroesUpdating,
   heroesUpdated,
   heroesUpdatingError,
-  heroDeleted
+  heroDeleted,
 } from "../reducers/heroSlice";
-import {filterFetch} from "../reducers/filterSlice"
+import { filterFetch } from "../reducers/filterSlice";
 
 export const useRequests = () => {
   const dispatch = useDispatch();
@@ -22,11 +22,11 @@ export const useRequests = () => {
       .catch(() => dispatch(heroesUpdatingError()));
   };
 
-	const fetchFilters = () => {
-		request("http://localhost:3001/filters")
+  const fetchFilters = () => {
+    request("http://localhost:3001/filters")
       .then((data) => dispatch(filterFetch(data)))
       .catch((error) => console.error(error));
-	}
+  };
 
   const fetchFilteredHeroes = (element) => {
     request("http://localhost:3001/heroes").then((data) => {
@@ -63,5 +63,11 @@ export const useRequests = () => {
     [request]
   );
 
-  return { fetchHeroes, fetchFilteredHeroes, setNewHero, deleteHero, fetchFilters };
+  return {
+    fetchHeroes,
+    fetchFilteredHeroes,
+    setNewHero,
+    deleteHero,
+    fetchFilters,
+  };
 };
