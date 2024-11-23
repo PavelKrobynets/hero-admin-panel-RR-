@@ -5,18 +5,16 @@ import { useSelector } from "react-redux";
 const HeroesFilters = () => {
   const [selectedElement, setSelectedElement] = useState(null);
   const request = useRequests();
-	const elements = useSelector(state => state.filter.filters)
+  const elements = useSelector((state) => state.filter.filters);
 
-	useEffect(() => {
-		request.fetchFilters()
-	})
-
+  useEffect(() => {
+    request.fetchFilters();
+  }, []);
 
   const onSubmit = (element) => {
     setSelectedElement(element);
     request.fetchFilteredHeroes(element);
   };
-
 
   return (
     <div className="card shadow-lg mt-4">

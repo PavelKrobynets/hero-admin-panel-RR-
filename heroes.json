@@ -1,22 +1,22 @@
 {
   "heroes": [
     {
-      "name": "Ang",
-      "description": "avatar",
-      "element": "wind",
-      "id": "073c6c27-c3a5-4f74-ad81-e6a89e567d3a"
-    },
-    {
-      "name": "Aquamen",
-      "description": "fish king",
-      "element": "water",
-      "id": "f86c27b9-da84-409b-ae9f-a067165d26a1"
-    },
-    {
-      "name": "Miyagi",
-      "description": "fireman",
+      "name": "Daimon Hellstrom",
+      "description": "also known as the Son of Satan and Hellstorm, is a fictional character appearing in American comic books published by Marvel Comics",
       "element": "fire",
-      "id": "f9f34e78-571f-484b-a84c-a1b0f2f5c9d1"
+      "id": "6a80e0b4-61ec-4635-8ac8-e7b5d2da4964"
+    },
+    {
+      "name": "Aquaman",
+      "description": "is a superhero appearing in American comic books published by DC Comics.",
+      "element": "water",
+      "id": "d2a2f69d-85ec-4542-8da3-b2b9f45d00a5"
+    },
+    {
+      "name": "Aang",
+      "description": " titular protagonist of Nickelodeon's animated television series Avatar: The Last Airbender ",
+      "element": "wind",
+      "id": "3f06537f-3a49-4456-af25-2cba5c842192"
     }
   ],
   "filters": [
