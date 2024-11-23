@@ -17,19 +17,19 @@ export const useRequests = () => {
 
   const fetchHeroes = () => {
     dispatch(heroesUpdating());
-    request("http://localhost:3001/heroes")
+    request("/heroes.json")
       .then((data) => dispatch(heroesUpdated(data)))
       .catch(() => dispatch(heroesUpdatingError()));
   };
 
   const fetchFilters = () => {
-    request("http://localhost:3001/filters")
-      .then((data) => dispatch(filterFetch(data)))
+    request("/heroes.json")
+      .then((data) => dispatch(filterFetch(data.filters)))
       .catch((error) => console.error(error));
   };
 
   const fetchFilteredHeroes = (element) => {
-    request("http://localhost:3001/heroes").then((data) => {
+    request("/heroes.json").then((data) => {
       const filteredHeroesData =
         element === "powerless"
           ? data
@@ -41,7 +41,7 @@ export const useRequests = () => {
   const setNewHero = (data) => {
     dispatch(heroesUpdating());
     data.id = v4();
-    request("http://localhost:3001/heroes", "POST", JSON.stringify(data))
+    request("/heroes.json", "POST", JSON.stringify(data))
       .then((data) => dispatch(heroesUpdated([data])))
       .catch((error) => {
         console.log(error);
@@ -51,7 +51,7 @@ export const useRequests = () => {
 
   const deleteHero = useCallback(
     (id) => {
-      request(`http://localhost:3001/heroes/${id}`, "DELETE")
+      request(`/heroes.json/${id}`, "DELETE")
         .then((data) => console.log(data, "DELETED"))
         .then(dispatch(heroDeleted(id)))
         .catch((error) => {
